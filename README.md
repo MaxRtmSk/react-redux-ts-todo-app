@@ -50,3 +50,5 @@ To learn React, check out the [React documentation](https://reactjs.org/).
     @types/react-redux
     redux
     react-redux
+
+    redux-devtools-extension
