@@ -21,6 +21,7 @@ export const todoReducer = (state = initialState, action: TodoAction): TodoState
         let todoIndex = newTodos.findIndex(todo => todo.id === action.payload.id)
         newTodos[todoIndex].title =  action.payload.title
         return {todos: newTodos, error: null}
+      default: 
+        return state;
   }
-  return state;
 }
