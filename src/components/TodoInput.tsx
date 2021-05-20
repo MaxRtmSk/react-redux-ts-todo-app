@@ -26,7 +26,6 @@ const TodoInput: FC = () => {
       <button onClick={buttonAdd}>Add</button>
     </div>
   )
-
 }
 
 export default TodoInput;

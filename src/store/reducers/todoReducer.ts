@@ -8,33 +8,19 @@ const initialState: TodoState = {
 export const todoReducer = (state = initialState, action: TodoAction): TodoState => {
   let newTodos = [];
   switch (action.type) {
-    // case 'DELETE_TODO':
-    //   newTodos = [...state];
-    //   newTodos = newTodos.filter((todo) => {
-    //     return todo.id != action.payload;
-    //   });
-    //   return newTodos;
-    // case 'UPDATE_TODO':
-    //   newTodos = [...state];
-    //   let index = -1;
-    //   for (let i = 0; i < newTodos.length; i++) {
-    //     index++;
-    //     if (newTodos[i].id == action.payload.id) {
-    //       break;
-    //     }
-    //   }
-    //   if (index != -1) {
-    //     newTodos[index] = action.payload
-    //     return newTodos
-    //   }
       case TodoActionTypes.ADD_TODO:
-      let newTodos = [...state.todos]
-      newTodos.push(action.payload)
-      return {todos: newTodos, error: null}
+        newTodos = [...state.todos]
+        newTodos.push(action.payload)
+        return {todos: newTodos, error: null}
       case TodoActionTypes.DELETE_TODO:
-      return {todos: [], error: null}
+        newTodos = [...state.todos]
+        newTodos = newTodos.filter((todo)=>todo.id !== action.payload)
+        return {todos: newTodos, error: null}
       case TodoActionTypes.UPDATE_TODO:
-      return {todos: [], error: null}
+        newTodos = [...state.todos]
+        let todoIndex = newTodos.findIndex(todo => todo.id === action.payload.id)
+        newTodos[todoIndex].title =  action.payload.title
+        return {todos: newTodos, error: null}
   }
   return state;
 }
