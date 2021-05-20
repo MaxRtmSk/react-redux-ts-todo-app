@@ -1,15 +1,16 @@
 import React, { FC } from 'react';
-import { ITodoItem } from '../types/types';
+import { ITodoItem } from '../types/todo';
 
 interface TodoItemProps {
   todo: ITodoItem
 }
 
 const TodoItem: FC<TodoItemProps> = ({ todo }) => {
-
+  const { id, title } = todo
   return (
-    <div>TodoItem</div>
-
+    <div>
+      <span>{title}</span>
+    </div>
   )
 
 }

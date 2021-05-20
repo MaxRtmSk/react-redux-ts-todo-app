@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { useTypedSeletor } from '../hooks/useTypedSelector';
+import TodoItem from './TodoItem';
 
 
 
@@ -10,7 +11,7 @@ const TodoList: FC = () => {
 
   return (
     <div>
-      TodoList
+      {todos.map((todo) => <TodoItem todo={todo} key={todo.id} />)}
     </div>
   )
 

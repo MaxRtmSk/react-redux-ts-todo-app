@@ -8,10 +8,6 @@ const initialState: TodoState = {
 export const todoReducer = (state = initialState, action: TodoAction): TodoState => {
   let newTodos = [];
   switch (action.type) {
-    // case 'ADD_TODO':
-    //   newTodos = {[...state]};
-    //   newTodos.todos.push(action.payload);
-    //   return {error: null}
     // case 'DELETE_TODO':
     //   newTodos = [...state];
     //   newTodos = newTodos.filter((todo) => {
@@ -32,7 +28,9 @@ export const todoReducer = (state = initialState, action: TodoAction): TodoState
     //     return newTodos
     //   }
       case TodoActionTypes.ADD_TODO:
-      return {todos: [], error: null}
+      let newTodos = [...state.todos]
+      newTodos.push(action.payload)
+      return {todos: newTodos, error: null}
       case TodoActionTypes.DELETE_TODO:
       return {todos: [], error: null}
       case TodoActionTypes.UPDATE_TODO:
