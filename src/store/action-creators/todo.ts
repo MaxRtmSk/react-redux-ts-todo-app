@@ -1,6 +1,6 @@
-import { AddTodosActions, DeleteTodosActions, ITodoItem, TodoActionTypes, UpdateTodosActions } from "../../types/todo";
+import { AddTodosActions, DeleteTodosActions, ITodo, TodoActionTypes, UpdateTodosActions } from "../../types/todo";
 
-export function addTodo(todo: ITodoItem): AddTodosActions {
+export function addTodo(todo: ITodo): AddTodosActions {
   return {
     type: TodoActionTypes.ADD_TODO,
     payload: todo,
@@ -14,7 +14,7 @@ export function deleteTodo(todoId: string): DeleteTodosActions {
   };
 }
 
-export function updateTodo(todo: ITodoItem): UpdateTodosActions {
+export function updateTodo(todo: ITodo): UpdateTodosActions {
   return {
     type: TodoActionTypes.UPDATE_TODO,
     payload: todo,

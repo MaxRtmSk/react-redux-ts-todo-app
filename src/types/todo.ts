@@ -1,10 +1,10 @@
-export interface ITodoItem {
+export interface ITodo {
   id: string,
   title: string
 }
 
 export interface TodoState {
-  todos: ITodoItem[];
+  todos: ITodo[];
   error: null | string;
 }
 
@@ -16,7 +16,7 @@ export enum TodoActionTypes {
 
 export interface AddTodosActions {
   type: TodoActionTypes.ADD_TODO;
-  payload: ITodoItem
+  payload: ITodo
 }
 
 export interface DeleteTodosActions {
@@ -26,7 +26,7 @@ export interface DeleteTodosActions {
 
 export interface UpdateTodosActions {
   type: TodoActionTypes.UPDATE_TODO;
-  payload: ITodoItem
+  payload: ITodo
 }
 
 export type TodoAction = AddTodosActions | DeleteTodosActions | UpdateTodosActions

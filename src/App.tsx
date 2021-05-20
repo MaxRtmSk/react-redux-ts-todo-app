@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { FC } from 'react';
 import './App.css';
+import List from './components/List';
 import TodoInput from './components/TodoInput';
-import TodoList from './components/TodoList';
+import TodoItem from './components/TodoItem';
+import { useTypedSeletor } from './hooks/useTypedSelector';
+import { ITodo } from './types/todo';
 
-export const App: React.FC = () => {
+export const App: FC = () => {
+  const { todos } = useTypedSeletor(state => state.todo)
+
   return (
     <div className="App">
       <TodoInput />
-      <TodoList />
+      <List items={todos} renderItem={(todo: ITodo) => <TodoItem todo={todo} key={todo.id} />} />
     </div>
   );
 }
