@@ -1,26 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { FC } from 'react';
 import './App.css';
+import List from './components/List';
+import TodoInput from './components/TodoInput';
+import TodoItem from './components/TodoItem';
+import { useTypedSeletor } from './hooks/useTypedSelector';
+import { ITodo } from './types/todo';
 
-function App() {
+export const App: FC = () => {
+  const { todos } = useTypedSeletor(state => state.todo)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TodoInput />
+      <List items={todos} renderItem={(todo: ITodo) => <TodoItem todo={todo} key={todo.id} />} />
     </div>
   );
 }
 
-export default App;
